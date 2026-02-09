@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Rose Day, My Love! 🌹</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -12,28 +16,29 @@
       }
 
       body {
-        font-family: "Georgia", serif;
+        font-family: "Cormorant Garamond", serif;
         background: linear-gradient(
           135deg,
-          #ffeef8 0%,
-          #ffe5f0 50%,
-          #ffd6e8 100%
+          #1a0510 0%,
+          #3d0a1f 50%,
+          #6b1239 100%
         );
         min-height: 100vh;
         overflow-x: hidden;
+        color: #fff;
       }
 
-      /* Valentine Week Timeline */
+      /* Navigation Timeline */
       .valentine-week-banner {
         background: linear-gradient(135deg, #c41e3a, #8b1538);
-        color: white;
-        padding: 20px;
+        padding: 25px 20px;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        /* position: sticky; */
+        box-shadow: 0 4px 20px rgba(196, 30, 58, 0.4);
+        position: sticky;
         top: 0;
         z-index: 1000;
         animation: slideDown 0.8s ease;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.1);
       }
 
       @keyframes slideDown {
@@ -48,48 +53,183 @@
       }
 
       .valentine-week-banner h2 {
-        font-size: 1.8em;
-        margin-bottom: 15px;
+        font-family: "Playfair Display", serif;
+        font-size: 2.2em;
+        margin-bottom: 20px;
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 4px;
+        font-weight: 900;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
       }
 
       .week-timeline {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: 12px;
         flex-wrap: wrap;
         margin-top: 15px;
       }
 
       .day-badge {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 8px 15px;
-        border-radius: 20px;
-        font-size: 0.9em;
-        transition: all 0.3s;
-        cursor: default;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 0.95em;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        cursor: pointer;
         border: 2px solid transparent;
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
       }
 
       .day-badge.active {
         background: white;
         color: #c41e3a;
         border-color: white;
-        transform: scale(1.1);
+        transform: scale(1.15);
         font-weight: bold;
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.6);
+        text-shadow: none;
       }
 
       .day-badge:not(.active):hover {
         background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
       }
 
-      /* Interactive Rose Bouquet */
+      /* Rose Petals Background */
+      .floating-rose-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .floating-rose {
+        position: absolute;
+        font-size: 2.5em;
+        opacity: 0.2;
+        animation: floatRose 20s infinite linear;
+        filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
+      }
+
+      @keyframes floatRose {
+        0% {
+          transform: translateY(110vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+        }
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        padding: 60px 20px 40px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 4.5em;
+        color: #ff6b9d;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 15px rgba(255, 107, 157, 0.5);
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+
+      .header p {
+        font-size: 1.6em;
+        color: #ffb3d9;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      /* Day Counter */
+      .day-counter {
+        background: linear-gradient(135deg, #ff1744 0%, #f50057 100%);
+        border: 5px solid #fff;
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto;
+        box-shadow:
+          0 10px 40px rgba(255, 23, 68, 0.6),
+          inset 0 0 30px rgba(255, 255, 255, 0.2);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow:
+            0 10px 40px rgba(255, 23, 68, 0.6),
+            inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        50% {
+          box-shadow:
+            0 15px 50px rgba(255, 23, 68, 0.9),
+            inset 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      .day-number {
+        font-family: "Playfair Display", serif;
+        font-size: 4.5em;
+        font-weight: bold;
+        color: #fff;
+        line-height: 1;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .day-label {
+        font-size: 1.2em;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+
+      /* Interactive Bouquet */
       .interactive-bouquet {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 40px;
+        right: 40px;
         z-index: 999;
         cursor: pointer;
         animation: bounce 2s infinite;
@@ -98,120 +238,59 @@
       @keyframes bounce {
         0%,
         100% {
-          transform: translateY(0);
+          transform: translateY(0) rotate(-5deg);
         }
         50% {
-          transform: translateY(-20px);
+          transform: translateY(-25px) rotate(5deg);
         }
       }
 
       .bouquet-icon {
-        font-size: 4em;
-        filter: drop-shadow(0 4px 10px rgba(196, 30, 58, 0.4));
+        font-size: 5em;
+        filter: drop-shadow(0 8px 20px rgba(255, 23, 68, 0.8));
         transition: all 0.3s;
       }
 
       .interactive-bouquet:hover .bouquet-icon {
-        transform: scale(1.2) rotate(10deg);
+        transform: scale(1.3) rotate(15deg);
+        filter: drop-shadow(0 12px 30px rgba(255, 23, 68, 1));
       }
 
       .bouquet-tooltip {
         position: absolute;
-        bottom: -40px;
+        bottom: -50px;
         right: 0;
-        background: #c41e3a;
+        background: linear-gradient(135deg, #ff1744, #f50057);
         color: white;
-        padding: 8px 15px;
-        border-radius: 20px;
-        font-size: 0.9em;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 1em;
         white-space: nowrap;
         opacity: 0;
         transition: opacity 0.3s;
         pointer-events: none;
+        box-shadow: 0 4px 15px rgba(255, 23, 68, 0.5);
       }
 
       .interactive-bouquet:hover .bouquet-tooltip {
         opacity: 1;
       }
 
-      /* Falling petals on click */
-      .petal {
-        position: fixed;
-        width: 10px;
-        height: 10px;
-        background: #ff69b4;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        animation: fallPetal 3s linear forwards;
-      }
-
-      @keyframes fallPetal {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      /* Day Counter */
-      .day-counter {
-        background: white;
-        border: 4px solid #c41e3a;
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 30px auto;
-        box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
-        }
-        50% {
-          box-shadow: 0 8px 30px rgba(196, 30, 58, 0.6);
-        }
-      }
-
-      .day-number {
-        font-size: 3.5em;
-        font-weight: bold;
-        color: #c41e3a;
-        line-height: 1;
-      }
-
-      .day-label {
-        font-size: 1em;
-        color: #8b1538;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      /* Interactive Love Message Popup */
+      /* Love Popup */
       .love-popup {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #2a0a1a 0%, #4a1530 100%);
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
         z-index: 10000;
-        max-width: 400px;
+        max-width: 500px;
         text-align: center;
-        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        border: 4px solid #c41e3a;
+        transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 5px solid #ff1744;
       }
 
       .love-popup.show {
@@ -224,11 +303,12 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
         z-index: 9999;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s;
+        transition: opacity 0.4s;
       }
 
       .popup-overlay.show {
@@ -236,106 +316,150 @@
         pointer-events: all;
       }
 
-      .love-popup h3 {
-        color: #c41e3a;
-        font-size: 2em;
+      .popup-icon {
+        font-size: 4em;
         margin-bottom: 20px;
+        animation: heartBeat 1.5s infinite;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+      }
+
+      .love-popup h3 {
+        font-family: "Playfair Display", serif;
+        color: #ff6b9d;
+        font-size: 2.5em;
+        margin-bottom: 25px;
+        font-weight: 900;
       }
 
       .love-popup p {
-        color: #333;
-        font-size: 1.2em;
-        line-height: 1.6;
-        margin-bottom: 20px;
+        color: #ffb3d9;
+        font-size: 1.3em;
+        line-height: 1.8;
+        margin-bottom: 25px;
       }
 
       .popup-close {
-        background: #c41e3a;
+        background: linear-gradient(135deg, #ff1744, #f50057);
         color: white;
         border: none;
-        padding: 12px 30px;
-        border-radius: 25px;
-        font-size: 1em;
+        padding: 15px 40px;
+        border-radius: 30px;
+        font-size: 1.1em;
         cursor: pointer;
         transition: all 0.3s;
+        font-weight: 600;
+        box-shadow: 0 5px 20px rgba(255, 23, 68, 0.5);
       }
 
       .popup-close:hover {
-        background: #8b1538;
-        transform: scale(1.05);
+        background: linear-gradient(135deg, #f50057, #ff1744);
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(255, 23, 68, 0.8);
       }
 
-      /* Individual Photo Popups */
+      /* Photo Gallery */
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin: 60px 0;
+      }
+
+      .photo-item {
+        animation: fadeInUp 1s ease;
+        animation-fill-mode: both;
+      }
+
+      .photo-item:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .photo-item:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .photo-item:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .photo-placeholder {
+        background: linear-gradient(135deg, #2a0a1a, #4a1530);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 50px rgba(255, 23, 68, 0.3);
+        cursor: pointer;
+        transition: all 0.4s;
+        border: 3px solid rgba(255, 107, 157, 0.3);
+      }
+
+      .photo-placeholder:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 70px rgba(255, 23, 68, 0.6);
+        border-color: #ff1744;
+      }
+
+      .photo-placeholder img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.9) contrast(1.1);
+        transition: filter 0.3s;
+      }
+
+      .photo-placeholder:hover img {
+        filter: brightness(1) contrast(1.2);
+      }
+
+      .photo-caption {
+        padding: 25px;
+        text-align: center;
+        font-size: 1.3em;
+        color: #ffb3d9;
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      /* Photo Message Popup */
       .photo-message-popup {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        z-index: 10001;
-        max-width: 500px;
+        background: linear-gradient(135deg, #2a0a1a 0%, #4a1530 100%);
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        max-width: 600px;
         width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
         text-align: center;
-        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        border: 4px solid #c41e3a;
+        transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 5px solid #ff1744;
       }
 
       .photo-message-popup.show {
         transform: translate(-50%, -50%) scale(1);
-      }
-
-      .photo-popup-1 {
-        border-color: #ff1493;
-        background: linear-gradient(to bottom, #fff, #fff5f8);
-      }
-
-      .photo-popup-2 {
-        border-color: #c71585;
-        background: linear-gradient(to bottom, #fff, #ffe5f0);
-      }
-
-      .photo-popup-3 {
-        border-color: #ff69b4;
-        background: linear-gradient(to bottom, #fff, #ffd6e8);
-      }
-
-      .photo-message-popup .popup-icon {
-        font-size: 4em;
-        margin-bottom: 20px;
-        animation: rotateIcon 3s infinite;
-      }
-
-      @keyframes rotateIcon {
-        0%,
-        100% {
-          transform: rotate(0deg) scale(1);
-        }
-        25% {
-          transform: rotate(-10deg) scale(1.1);
-        }
-        75% {
-          transform: rotate(10deg) scale(1.1);
-        }
-      }
-
-      .photo-message-popup h3 {
-        color: #c41e3a;
-        font-size: 2em;
-        margin-bottom: 20px;
-      }
-
-      .photo-message-popup .message-text {
-        color: #333;
-        font-size: 1.2em;
-        line-height: 1.8;
-        margin-bottom: 25px;
-        padding: 20px;
-        background: rgba(255, 182, 193, 0.1);
-        border-radius: 10px;
-        border-left: 4px solid #c41e3a;
       }
 
       .popup-overlay-photo {
@@ -344,11 +468,12 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 10000;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(15px);
+        z-index: 9999;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s;
+        transition: opacity 0.4s;
       }
 
       .popup-overlay-photo.show {
@@ -356,558 +481,195 @@
         pointer-events: all;
       }
 
-      /* Floating roses animation */
-      .rose-bg {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 1;
+      .photo-message-popup h3 {
+        font-family: "Playfair Display", serif;
+        color: #ff6b9d;
+        font-size: 2.2em;
+        margin-bottom: 25px;
+        font-weight: 900;
       }
 
-      .floating-rose {
-        position: absolute;
-        font-size: 30px;
-        animation: float 15s infinite ease-in-out;
-        opacity: 0.3;
+      .message-text {
+        color: #ffb3d9;
+        font-size: 1.2em;
+        line-height: 2;
+        margin-bottom: 30px;
+        padding: 30px;
+        background: rgba(255, 23, 68, 0.1);
+        border-radius: 20px;
+        border-left: 5px solid #ff1744;
       }
 
-      @keyframes float {
+      /* Rose Divider */
+      .rose-divider {
+        text-align: center;
+        font-size: 3em;
+        margin: 70px 0;
+        animation: sway 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.6));
+      }
+
+      @keyframes sway {
         0%,
         100% {
-          transform: translateY(0) rotate(0deg);
+          transform: rotate(-5deg);
         }
         50% {
-          transform: translateY(-100vh) rotate(360deg);
+          transform: rotate(5deg);
         }
       }
 
-      /* Click hearts animation */
-      .click-heart {
-        position: fixed;
-        font-size: 2em;
-        pointer-events: none;
-        z-index: 9999;
-        animation: floatUpHeart 2s ease-out forwards;
-      }
-
-      @keyframes floatUpHeart {
-        0% {
-          opacity: 1;
-          transform: translateY(0) scale(0);
-        }
-        50% {
-          transform: translateY(-50px) scale(1.2);
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-100px) scale(0.5);
-        }
-      }
-
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        position: relative;
-        z-index: 2;
-      }
-
-      header {
-        text-align: center;
-        margin-bottom: 50px;
-        animation: fadeInDown 1s ease;
-      }
-
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      h1 {
-        font-size: 3.5em;
-        color: #c41e3a;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        margin-bottom: 10px;
-        font-weight: 700;
-      }
-
-      .subtitle {
-        font-size: 1.5em;
-        color: #8b1538;
-        font-style: italic;
-      }
-
-      .main-message {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(196, 30, 58, 0.2);
-        margin-bottom: 40px;
-        animation: fadeInUp 1s ease 0.3s both;
-        border: 3px solid #ffb3c6;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .editable-message {
-        font-size: 1.2em;
-        line-height: 1.8;
-        color: #333;
-        text-align: center;
-        min-height: 100px;
-        padding: 20px;
-        border: 2px dashed transparent;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-
-      .editable-message:hover {
-        border-color: #ffb3c6;
-        background: #fff5f8;
-      }
-
-      .editable-message:focus {
-        outline: none;
-        border-color: #c41e3a;
-        background: white;
-      }
-
-      .photo-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-
-      .photo-card {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        animation: fadeInUp 1s ease both;
-        border: 3px solid #ffb3c6;
-        transition: transform 0.3s;
-      }
-
-      .photo-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
-      }
-
-      .photo-card:nth-child(1) {
-        animation-delay: 0.5s;
-      }
-      .photo-card:nth-child(2) {
-        animation-delay: 0.7s;
-      }
-      .photo-card:nth-child(3) {
-        animation-delay: 0.9s;
-      }
-
-      .photo-placeholder {
-        width: 100%;
-        height: 250px;
-        background: linear-gradient(135deg, #ffe5f0, #ffd6e8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4em;
-        cursor: pointer;
-        transition: background 0.3s;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .photo-placeholder:hover {
-        background: linear-gradient(135deg, #ffd6e8, #ffc4dc);
-      }
-
-      .photo-placeholder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .photo-placeholder .placeholder-icon {
-        font-size: 4em;
-      }
-
-      .photo-placeholder:hover .hover-hint {
-        opacity: 1;
-      }
-
-      .hover-hint {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(196, 30, 58, 0.9);
-        color: white;
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 0.4em;
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-      }
-
-      .photo-caption {
-        padding: 15px;
-        text-align: center;
-        color: #c41e3a;
-        font-style: italic;
-        cursor: pointer;
-        border-top: 2px solid #ffe5f0;
-      }
-
-      .photo-caption:hover {
-        background: #fff5f8;
-      }
-
-      .photo-caption:focus {
-        outline: none;
-        background: #ffe5f0;
-      }
-
+      /* Love Note */
       .love-note {
-        background: linear-gradient(135deg, #c41e3a, #8b1538);
-        color: white;
-        padding: 50px 40px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
-        animation: fadeInUp 1s ease 1.1s both;
-        margin-bottom: 40px;
+        background: linear-gradient(135deg, #2a0a1a 0%, #4a1530 100%);
+        padding: 60px;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        margin: 60px auto;
+        max-width: 900px;
+        border: 5px solid #ff1744;
+        animation: fadeIn 1.5s ease;
       }
 
       .love-note h2 {
-        font-size: 2.5em;
-        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+        color: #ff6b9d;
+        font-size: 3em;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 900;
       }
 
       .love-note p {
-        font-size: 1.3em;
-        line-height: 1.8;
-        min-height: 60px;
-        padding: 5px;
-        cursor: pointer;
-        border-radius: 10px;
-        transition: background 0.3s;
-      }
-
-      .love-note p:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .love-note p:focus {
-        outline: none;
-        background: rgba(255, 255, 255, 0.2);
+        font-size: 1.4em;
+        line-height: 2;
+        color: #ffb3d9;
+        margin-bottom: 25px;
+        text-align: justify;
       }
 
       .signature {
         text-align: right;
-        font-size: 1.5em;
-        color: white;
-        margin-top: 30px;
         font-style: italic;
+        font-size: 1.5em;
+        color: #ff6b9d;
+        margin-top: 40px;
+        font-weight: 600;
       }
 
       .heart-animation {
         display: inline-block;
-        animation: heartbeat 1.5s infinite;
-        margin: 0 10px;
+        animation: heartBeat 1.5s infinite;
+        font-size: 1.2em;
       }
 
-      @keyframes heartbeat {
-        0%,
+      /* Click Hearts Effect */
+      .click-heart {
+        position: fixed;
+        font-size: 2.5em;
+        pointer-events: none;
+        z-index: 9999;
+        animation: floatUp 2s ease-out forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
         100% {
-          transform: scale(1);
-        }
-        25% {
-          transform: scale(1.2);
-        }
-        50% {
-          transform: scale(1);
+          transform: translateY(-120px) scale(2);
+          opacity: 0;
         }
       }
 
-      .instructions {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        border-left: 5px solid #c41e3a;
-        animation: fadeInUp 1s ease 0.2s both;
-      }
-
-      .instructions h3 {
-        color: #c41e3a;
-        margin-bottom: 10px;
-      }
-
-      .instructions ul {
-        margin-left: 20px;
-        color: #555;
-        line-height: 1.8;
-      }
-
-      input[type="file"] {
-        display: none;
-      }
-
+      /* Responsive */
       @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5em;
+        .header h1 {
+          font-size: 3em;
         }
 
-        .subtitle {
-          font-size: 1.2em;
+        .love-note {
+          padding: 35px;
         }
 
         .photo-gallery {
           grid-template-columns: 1fr;
         }
-
-        .main-message,
-        .love-note {
-          padding: 25px;
-        }
-
-        .valentine-week-banner h2 {
-          font-size: 1.3em;
-        }
-
-        .week-timeline {
-          gap: 5px;
-        }
-
-        .day-badge {
-          font-size: 0.7em;
-          padding: 6px 10px;
-        }
-
-        .interactive-bouquet {
-          bottom: 20px;
-          right: 20px;
-        }
-
-        .bouquet-icon {
-          font-size: 3em;
-        }
-
-        .day-counter {
-          width: 120px;
-          height: 120px;
-        }
-
-        .day-number {
-          font-size: 2.8em;
-        }
-
-        .love-popup {
-          max-width: 90%;
-          padding: 30px 20px;
-        }
-
-        .love-popup h3 {
-          font-size: 1.5em;
-        }
-
-        .love-popup p {
-          font-size: 1em;
-        }
-
-        .photo-message-popup {
-          padding: 25px 15px;
-        }
-
-        .photo-message-popup h3 {
-          font-size: 1.5em;
-        }
-
-        .photo-message-popup .message-text {
-          font-size: 1em;
-          padding: 15px;
-        }
-
-        .photo-message-popup .popup-icon {
-          font-size: 3em;
-        }
-      }
-
-      .rose-divider {
-        text-align: center;
-        font-size: 2em;
-        margin: 30px 0;
-        color: #c41e3a;
       }
     </style>
   </head>
   <body>
-    <!-- Valentine Week Banner -->
+    <div class="floating-rose-bg" id="roseBg"></div>
+
     <div class="valentine-week-banner">
       <h2>💕 Panda's Valentine Week 💕</h2>
       <div class="week-timeline">
-        <div class="day-badge active">Day 1: Rose Day 🌹</div>
-        <div class="day-badge">Day 2: Propose Day 💍</div>
-        <div class="day-badge">Day 3: Chocolate Day 🍫</div>
-        <div class="day-badge">Day 4: Teddy Day 🧸</div>
-        <div class="day-badge">Day 5: Promise Day 🤝</div>
-        <div class="day-badge">Day 6: Hug Day 🤗</div>
-        <div class="day-badge">Day 7: Kiss Day 💋</div>
-        <div class="day-badge">Day 8: Valentine's Day ❤️</div>
+        <a href="index.html" class="day-badge active">🌹 Rose Day</a>
+        <a href="propose-day.html" class="day-badge">💍 Propose Day</a>
+        <a href="chocolate-day.html" class="day-badge">🍫 Chocolate Day</a>
+        <span class="day-badge">🧸 Teddy Day</span>
+        <span class="day-badge">🤝 Promise Day</span>
+        <span class="day-badge">🤗 Hug Day</span>
+        <span class="day-badge">💋 Kiss Day</span>
+        <span class="day-badge">💖 Valentine's Day</span>
       </div>
     </div>
 
-    <!-- Interactive Bouquet -->
     <div class="interactive-bouquet" onclick="showLoveMessage()">
       <div class="bouquet-icon">💐</div>
-      <div class="bouquet-tooltip">Click me for a surprise!</div>
+      <div class="bouquet-tooltip">Click for a surprise! 💕</div>
     </div>
-
-    <!-- Love Message Popup -->
-    <div
-      class="popup-overlay"
-      id="popupOverlay"
-      onclick="closeLoveMessage()"
-    ></div>
-    <div class="love-popup" id="lovePopup">
-      <h3>A token of love for you 💕</h3>
-      <p contenteditable="true" id="popupMessage">
-        On this rose day, I could not gift you a rose personally, but I have
-        arranged so that my jaan receives a rose on this special day. Just like
-        that rose blooms with beauty, my love for you grows stronger every day.
-        You are the beginning of my forever! 🌹
-      </p>
-      <button class="popup-close" onclick="closeLoveMessage()">
-        Close with Love ❤️
-      </button>
-    </div>
-
-    <div class="rose-bg" id="roseBg"></div>
 
     <div class="container">
-      <!-- Day Counter -->
+      <div class="header">
+        <h1>Happy Rose Day! 🌹</h1>
+        <p>Day 1 of celebrating our beautiful love story</p>
+      </div>
+
       <div class="day-counter">
         <div class="day-number">1</div>
-        <div class="day-label">of 8</div>
+        <div class="day-label">Rose Day</div>
       </div>
 
-      <!-- <div class="instructions">
-            <h3>✨ How to Customize This Page:</h3>
-            <ul>
-                <li>📝 <strong>Edit any text</strong> by clicking on it (all pink/red text areas are editable)</li>
-                <li>📸 <strong>Add images</strong> - Open the HTML file and replace empty <code>src=""</code> attributes with your image URLs</li>
-                <li>🖼️ <strong>Each photo has a popup</strong> - Click on any photo to see its special message!</li>
-                <li>💝 <strong>Edit popup messages</strong> by clicking the text inside each popup</li>
-                <li>🎁 <strong>Click the bouquet</strong> (bottom right) for a petal shower surprise!</li>
-                <li>💕 <strong>Click anywhere</strong> on the page to create floating hearts!</li>
-                <li>✨ Press <strong>ESC</strong> to close any popup</li>
-            </ul>
-        </div> -->
+      <div
+        class="popup-overlay"
+        id="popupOverlay"
+        onclick="closeLoveMessage()"
+      ></div>
 
-      <header>
-        <h1>Happy Rose Day! 🌹</h1>
-        <p class="subtitle">The Beginning of Our Valentine's Week Journey</p>
-      </header>
-
-      <div class="main-message">
-        <div class="editable-message" contenteditable="true">
-          Hello Puch, I am sorry for disturbing you so much. We dont have the
-          good fortune to celebrate this week together. The best we can do is
-          celebrate it digitally. I promise to celebrate this week with you
-          without causing you much trouble. To start, I wish you a very happy
-          Rose day. I know my actions dont always convey my feelings, but I
-          really love you a lot. This is Day 1 of 8 special days dedicated to
-          celebrating our love! 🌹💕
-        </div>
+      <div class="love-popup" id="lovePopup">
+        <div class="popup-icon">🌹</div>
+        <h3>A token of love for you 💕</h3>
+        <p contenteditable="true">
+          On this rose day, I could not gift you a rose personally, but I have
+          arranged so that my jaan receives a rose on this special day. Just
+          like that rose blooms with beauty, my love for you grows stronger
+          every day. You are the beginning of my forever! 🌹
+        </p>
+        <button class="popup-close" onclick="closeLoveMessage()">
+          Close 💖
+        </button>
       </div>
-
-      <div class="rose-divider">🌹 💕 🌹</div>
 
       <div class="photo-gallery">
-        <div class="photo-card">
+        <div class="photo-item">
           <div class="photo-placeholder" onclick="showPhotoMessage(1)">
-            <!-- Replace 'YOUR_IMAGE_URL_HERE' with your actual image URL -->
-            <img
-              src="WhenWeEnjoy.jpg"
-              alt="Our Memory"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <!-- <div
-              class="placeholder-icon"
-              style="display: flex; flex-direction: column; align-items: center"
-            >
-              🌹
-              <div class="hover-hint">Click for message!</div>
-            </div> -->
-          </div>
-          <div class="photo-caption" contenteditable="true">Us!</div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder" onclick="showPhotoMessage(2)">
-            <!-- Replace 'YOUR_IMAGE_URL_HERE' with your actual image URL -->
-            <img
-              src="WhenWeMeet.jpg"
-              alt="Our Memory"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <!-- <div
-              class="placeholder-icon"
-              style="display: flex; flex-direction: column; align-items: center"
-            >
-              🌹
-              <div class="hover-hint">Click for message!</div>
-            </div> -->
+            <img src="WhenWeMeet.jpg" alt="Our Beautiful Moment" />
           </div>
           <div class="photo-caption" contenteditable="true">When we meet</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(2)">
+            <img src="WhenWeEnjoy.jpg" alt="Our Happiest Moment" />
+          </div>
+          <div class="photo-caption" contenteditable="true">Us!</div>
+        </div>
+
+        <div class="photo-item">
           <div class="photo-placeholder" onclick="showPhotoMessage(3)">
-            <!-- Replace 'YOUR_IMAGE_URL_HERE' with your actual image URL -->
-            <img
-              src="Her.jpg"
-              alt="You"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <!-- <div
-              class="placeholder-icon"
-              style="display: flex; flex-direction: column; align-items: center"
-            >
-              🌹
-              <div class="hover-hint">Click for message!</div>
-            </div> -->
+            <img src="Her.jpg" alt="Our Favorite Place" />
           </div>
           <div class="photo-caption" contenteditable="true">
             You, forever beautiful
@@ -915,7 +677,6 @@
         </div>
       </div>
 
-      <!-- Photo Message Popups -->
       <div
         class="popup-overlay-photo"
         id="photoOverlay"
@@ -926,11 +687,11 @@
         <div class="popup-icon">💝</div>
         <h3>The sexiest couple!</h3>
         <div class="message-text" contenteditable="true">
-          This picture captures the our bond. Some might even get confused
-          thinking of us as maybe childhood friends. Such is our bond and
-          chemistry. We enjoy each other, sometimes we fight, but mostly we are
-          the sexiest couple in the room. Cheers to out relationship, on our
-          third valentine week together.
+          This picture captures our bond. Some might even get confused thinking
+          of us as maybe childhood friends. Such is our bond and chemistry. We
+          enjoy each other, sometimes we fight, but mostly we are the sexiest
+          couple in the room. Cheers to our relationship, on our third valentine
+          week together.
         </div>
         <button class="popup-close" onclick="closePhotoMessage()">
           Close 💕
@@ -944,7 +705,7 @@
           A sample of the moments when we first meet. This is probably the
           happiest moment of the trip for me. When we hug, when I share your
           breath. I feel butterflies in my heart and stomach. I might sound
-          horney, but the love and affection behind is the absolutely pure. God
+          horney, but the love and affection behind is absolutely pure. God
           promise!
         </div>
         <button class="popup-close" onclick="closePhotoMessage()">
@@ -973,51 +734,45 @@
         <h2>You are my <span class="heart-animation">❤️</span></h2>
         <p contenteditable="true">
           In a garden full of roses, you would still be the one I'd choose. You
-          are lovlier than the lovliest of roses. You are more fragnant than the
-          freshest of flowers. Thank you for being my love, my friend, and my
-          everything. Happy Rose Day, my darling!
+          are lovelier than the loveliest of roses. You are more fragrant than
+          the freshest of flowers. Thank you for being my love, my friend, and
+          my everything. Happy Rose Day, my darling!
         </p>
         <p class="signature">Forever Yours 💕</p>
       </div>
     </div>
 
     <script>
-      // Create floating roses
       function createFloatingRoses() {
         const roseBg = document.getElementById("roseBg");
         const roseEmojis = ["🌹", "🌺", "💐", "🥀"];
 
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 20; i++) {
           const rose = document.createElement("div");
           rose.className = "floating-rose";
           rose.textContent =
             roseEmojis[Math.floor(Math.random() * roseEmojis.length)];
           rose.style.left = Math.random() * 100 + "%";
-          rose.style.animationDelay = Math.random() * 15 + "s";
-          rose.style.animationDuration = Math.random() * 10 + 10 + "s";
+          rose.style.animationDelay = Math.random() * 20 + "s";
+          rose.style.animationDuration = Math.random() * 15 + 15 + "s";
           roseBg.appendChild(rose);
         }
       }
 
-      // Show love message popup
       function showLoveMessage() {
         document.getElementById("popupOverlay").classList.add("show");
         document.getElementById("lovePopup").classList.add("show");
         createPetalShower();
       }
 
-      // Close love message popup
       function closeLoveMessage() {
         document.getElementById("popupOverlay").classList.remove("show");
         document.getElementById("lovePopup").classList.remove("show");
       }
 
-      // Show photo message popup
       let currentPhotoPopup = null;
       function showPhotoMessage(photoNumber) {
-        // Close any open popup first
         closePhotoMessage();
-
         currentPhotoPopup = photoNumber;
         document.getElementById("photoOverlay").classList.add("show");
         document
@@ -1026,7 +781,6 @@
         createHeartExplosion();
       }
 
-      // Close photo message popup
       function closePhotoMessage() {
         if (currentPhotoPopup) {
           document.getElementById("photoOverlay").classList.remove("show");
@@ -1037,33 +791,30 @@
         }
       }
 
-      // Create heart explosion effect
       function createHeartExplosion() {
         const hearts = ["❤️", "💕", "💖", "💗", "💝", "💓", "💘"];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 25; i++) {
           setTimeout(() => {
             const heart = document.createElement("div");
             heart.style.position = "fixed";
             heart.style.left = "50%";
             heart.style.top = "50%";
-            heart.style.fontSize = "2em";
+            heart.style.fontSize = "2.5em";
             heart.style.pointerEvents = "none";
             heart.style.zIndex = "10002";
             heart.textContent =
               hearts[Math.floor(Math.random() * hearts.length)];
 
-            const angle = (Math.PI * 2 * i) / 20;
-            const velocity = 100 + Math.random() * 100;
-
+            const angle = (Math.PI * 2 * i) / 25;
             document.body.appendChild(heart);
 
             let x = 0,
               y = 0,
               opacity = 1;
             const animate = () => {
-              x += Math.cos(angle) * 5;
-              y += Math.sin(angle) * 5;
-              opacity -= 0.02;
+              x += Math.cos(angle) * 6;
+              y += Math.sin(angle) * 6;
+              opacity -= 0.015;
 
               heart.style.transform = `translate(${x}px, ${y}px)`;
               heart.style.opacity = opacity;
@@ -1079,32 +830,54 @@
         }
       }
 
-      // Create petal shower effect
       function createPetalShower() {
         const colors = ["#ff69b4", "#ff1493", "#c71585", "#db7093", "#ffb6c1"];
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 40; i++) {
           setTimeout(() => {
             const petal = document.createElement("div");
-            petal.className = "petal";
-            petal.style.left = Math.random() * 100 + "vw";
-            petal.style.top = "-10px";
+            petal.style.position = "fixed";
+            petal.style.width = "12px";
+            petal.style.height = "12px";
             petal.style.background =
               colors[Math.floor(Math.random() * colors.length)];
-            petal.style.animationDuration = Math.random() * 2 + 2 + "s";
-            petal.style.animationDelay = Math.random() * 0.5 + "s";
-            document.body.appendChild(petal);
+            petal.style.borderRadius = "50%";
+            petal.style.pointerEvents = "none";
+            petal.style.zIndex = "9999";
+            petal.style.left = Math.random() * 100 + "vw";
+            petal.style.top = "-10px";
+            petal.style.boxShadow =
+              "0 0 10px " + colors[Math.floor(Math.random() * colors.length)];
 
-            setTimeout(() => petal.remove(), 3000);
+            const duration = Math.random() * 2 + 2;
+            petal.style.animation = `fallPetal ${duration}s linear forwards`;
+
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), duration * 1000);
           }, i * 100);
         }
       }
 
-      // Create floating hearts on click
+      const fallPetalKeyframes = `
+        @keyframes fallPetal {
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `;
+      const styleSheet = document.createElement("style");
+      styleSheet.textContent = fallPetalKeyframes;
+      document.head.appendChild(styleSheet);
+
       document.addEventListener("click", function (e) {
-        // Don't create hearts when clicking on editable elements or interactive elements
         if (
           e.target.contentEditable === "true" ||
           e.target.tagName === "BUTTON" ||
+          e.target.tagName === "A" ||
           e.target.classList.contains("popup-close") ||
           e.target.closest(".interactive-bouquet") ||
           e.target.closest(".photo-placeholder")
@@ -1126,44 +899,8 @@
         setTimeout(() => heart.remove(), 2000);
       });
 
-      // Initialize floating roses on page load
       window.addEventListener("load", createFloatingRoses);
 
-      // Save edits to localStorage
-      document.addEventListener(
-        "blur",
-        function (e) {
-          if (e.target.contentEditable === "true") {
-            const key = e.target.id || e.target.className;
-            localStorage.setItem(key, e.target.innerHTML);
-          }
-        },
-        true,
-      );
-
-      // Load saved edits
-      window.addEventListener("load", function () {
-        document
-          .querySelectorAll('[contenteditable="true"]')
-          .forEach((element) => {
-            const key = element.id || element.className;
-            const saved = localStorage.getItem(key);
-            if (saved) {
-              element.innerHTML = saved;
-            }
-          });
-      });
-
-      // Add sparkle effect to day counter
-      setInterval(() => {
-        const counter = document.querySelector(".day-counter");
-        counter.style.transform = "scale(1.05)";
-        setTimeout(() => {
-          counter.style.transform = "scale(1)";
-        }, 200);
-      }, 3000);
-
-      // Keyboard shortcuts
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
           closeLoveMessage();
