@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Chocolate Day, My Love! 🍫</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Merriweather", serif;
+        background: linear-gradient(
+          135deg,
+          #3e2723 0%,
+          #5d4037 50%,
+          #6d4c41 100%
+        );
+        min-height: 100vh;
+        overflow-x: hidden;
+        color: #ffecd9;
+      }
+
+      /* Navigation Timeline */
+      .valentine-week-banner {
+        background: linear-gradient(135deg, #6d4c41, #5d4037);
+        padding: 25px 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(109, 76, 65, 0.6);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        animation: slideDown 0.8s ease;
+        border-bottom: 3px solid rgba(255, 236, 217, 0.2);
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .valentine-week-banner h2 {
+        font-family: "Satisfy", cursive;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #ffccbc;
+        text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+        letter-spacing: 2px;
+      }
+
+      .week-timeline {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .day-badge {
+        background: rgba(255, 204, 188, 0.15);
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 0.95em;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+        color: #ffccbc;
+        display: inline-block;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .day-badge.active {
+        background: #ffccbc;
+        color: #5d4037;
+        border-color: #ffccbc;
+        transform: scale(1.15);
+        font-weight: bold;
+        box-shadow: 0 6px 20px rgba(255, 204, 188, 0.6);
+        text-shadow: none;
+      }
+
+      .day-badge:not(.active):hover {
+        background: rgba(255, 204, 188, 0.25);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(255, 204, 188, 0.3);
+      }
+
+      /* Floating Chocolates Background */
+      .floating-chocolate-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .floating-chocolate {
+        position: absolute;
+        font-size: 2.8em;
+        opacity: 0.2;
+        animation: floatChocolate 22s infinite linear;
+        filter: drop-shadow(0 0 12px rgba(121, 85, 72, 0.6));
+      }
+
+      @keyframes floatChocolate {
+        0% {
+          transform: translateY(110vh) rotate(0deg) translateX(0);
+        }
+        50% {
+          transform: translateY(50vh) rotate(180deg) translateX(50px);
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg) translateX(0);
+        }
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        padding: 65px 20px 45px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header h1 {
+        font-family: "Satisfy", cursive;
+        font-size: 5.2em;
+        color: #ffccbc;
+        margin-bottom: 20px;
+        text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.6);
+        letter-spacing: 2px;
+      }
+
+      .header p {
+        font-size: 1.65em;
+        color: #ffd4b3;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      /* Day Counter */
+      .day-counter {
+        background: linear-gradient(135deg, #8d6e63 0%, #a1887f 100%);
+        border: 6px solid #ffccbc;
+        border-radius: 50%;
+        width: 190px;
+        height: 190px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 45px auto;
+        box-shadow:
+          0 12px 45px rgba(141, 110, 99, 0.6),
+          inset 0 0 35px rgba(255, 204, 188, 0.2);
+        animation: chocolatePulse 2.8s infinite;
+      }
+
+      @keyframes chocolatePulse {
+        0%,
+        100% {
+          box-shadow:
+            0 12px 45px rgba(141, 110, 99, 0.6),
+            inset 0 0 35px rgba(255, 204, 188, 0.2);
+          transform: scale(1);
+        }
+        50% {
+          box-shadow:
+            0 18px 55px rgba(141, 110, 99, 0.9),
+            inset 0 0 45px rgba(255, 204, 188, 0.3);
+          transform: scale(1.06);
+        }
+      }
+
+      .day-number {
+        font-family: "Satisfy", cursive;
+        font-size: 5em;
+        font-weight: bold;
+        color: #ffccbc;
+        line-height: 1;
+        text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+      }
+
+      .day-label {
+        font-size: 1.25em;
+        color: #ffd4b3;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 600;
+        margin-top: 6px;
+      }
+
+      /* Chocolate Icon */
+      .chocolate-icon {
+        font-size: 6.5em;
+        text-align: center;
+        margin: 45px 0;
+        animation: chocolateWiggle 2s infinite;
+        filter: drop-shadow(0 0 25px rgba(121, 85, 72, 0.8));
+      }
+
+      @keyframes chocolateWiggle {
+        0%,
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+        25% {
+          transform: rotate(-8deg) scale(1.08);
+        }
+        75% {
+          transform: rotate(8deg) scale(1.08);
+        }
+      }
+
+      /* Interactive Chocolate */
+      .interactive-chocolate {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 999;
+        cursor: pointer;
+        animation: bounce 2.3s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-8deg);
+        }
+        50% {
+          transform: translateY(-28px) rotate(8deg);
+        }
+      }
+
+      .chocolate-icon-button {
+        font-size: 5.5em;
+        filter: drop-shadow(0 10px 25px rgba(121, 85, 72, 0.9));
+        transition: all 0.4s;
+      }
+
+      .interactive-chocolate:hover .chocolate-icon-button {
+        transform: scale(1.35) rotate(18deg);
+        filter: drop-shadow(0 15px 35px rgba(121, 85, 72, 1));
+      }
+
+      .chocolate-tooltip {
+        position: absolute;
+        bottom: -55px;
+        right: 0;
+        background: linear-gradient(135deg, #8d6e63, #6d4c41);
+        color: #ffccbc;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 1em;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        box-shadow: 0 5px 20px rgba(121, 85, 72, 0.7);
+        font-weight: 600;
+      }
+
+      .interactive-chocolate:hover .chocolate-tooltip {
+        opacity: 1;
+      }
+
+      /* Love Popup */
+      .love-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: linear-gradient(135deg, #5d4037 0%, #4e342e 100%);
+        padding: 55px;
+        border-radius: 32px;
+        box-shadow: 0 28px 85px rgba(0, 0, 0, 0.6);
+        z-index: 10000;
+        max-width: 540px;
+        text-align: center;
+        transition: transform 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 5px solid #ffccbc;
+      }
+
+      .love-popup.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s;
+      }
+
+      .popup-overlay.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .popup-icon {
+        font-size: 4.3em;
+        margin-bottom: 22px;
+        animation: heartBeat 1.7s infinite;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+      }
+
+      .love-popup h3 {
+        font-family: "Satisfy", cursive;
+        color: #ffccbc;
+        font-size: 2.7em;
+        margin-bottom: 28px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .love-popup p {
+        color: #ffd4b3;
+        font-size: 1.32em;
+        line-height: 1.85;
+        margin-bottom: 28px;
+      }
+
+      .popup-close {
+        background: linear-gradient(135deg, #8d6e63, #6d4c41);
+        color: #ffccbc;
+        border: none;
+        padding: 15px 42px;
+        border-radius: 32px;
+        font-size: 1.12em;
+        cursor: pointer;
+        transition: all 0.4s;
+        font-weight: 700;
+        box-shadow: 0 6px 24px rgba(121, 85, 72, 0.6);
+      }
+
+      .popup-close:hover {
+        background: linear-gradient(135deg, #6d4c41, #8d6e63);
+        transform: scale(1.1);
+        box-shadow: 0 10px 32px rgba(121, 85, 72, 0.9);
+      }
+
+      /* Video Container */
+      .video-container {
+        background: linear-gradient(135deg, #5d4037, #4e342e);
+        padding: 45px;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        margin: 55px auto;
+        max-width: 900px;
+        border: 5px solid #ffccbc;
+        animation: fadeIn 1.5s ease;
+      }
+
+      .video-container h3 {
+        font-family: "Satisfy", cursive;
+        color: #ffccbc;
+        font-size: 2.8em;
+        margin-bottom: 30px;
+        text-align: center;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 20px;
+        background: #000;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+      }
+
+      .video-wrapper iframe,
+      .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 20px;
+      }
+
+      .video-caption {
+        margin-top: 25px;
+        text-align: center;
+        font-size: 1.3em;
+        color: #ffd4b3;
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      /* Photo Gallery */
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+        gap: 48px;
+        margin: 65px 0;
+      }
+
+      .photo-item {
+        animation: fadeInUp 1.2s ease;
+        animation-fill-mode: both;
+      }
+
+      .photo-item:nth-child(1) {
+        animation-delay: 0.25s;
+      }
+      .photo-item:nth-child(2) {
+        animation-delay: 0.45s;
+      }
+      .photo-item:nth-child(3) {
+        animation-delay: 0.65s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(55px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .photo-placeholder {
+        background: linear-gradient(135deg, #5d4037, #4e342e);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 18px 55px rgba(121, 85, 72, 0.4);
+        cursor: pointer;
+        transition: all 0.45s;
+        border: 4px solid rgba(255, 204, 188, 0.25);
+      }
+
+      .photo-placeholder:hover {
+        transform: translateY(-18px) scale(1.025);
+        box-shadow: 0 28px 75px rgba(121, 85, 72, 0.7);
+        border-color: #ffccbc;
+      }
+
+      .photo-placeholder img {
+        width: 100%;
+        height: 370px;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.92) sepia(0.15);
+        transition: filter 0.4s;
+      }
+
+      .photo-placeholder:hover img {
+        filter: brightness(1) sepia(0.2);
+      }
+
+      .photo-caption {
+        padding: 28px;
+        text-align: center;
+        font-size: 1.38em;
+        color: #ffd4b3;
+        font-style: italic;
+        font-weight: 600;
+        background: linear-gradient(to bottom, #5d4037, #4e342e);
+      }
+
+      /* Photo Message Popup */
+      .photo-message-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: linear-gradient(135deg, #5d4037 0%, #4e342e 100%);
+        padding: 55px;
+        border-radius: 32px;
+        box-shadow: 0 28px 85px rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        max-width: 640px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        text-align: center;
+        transition: transform 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 5px solid #ffccbc;
+      }
+
+      .photo-message-popup.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .popup-overlay-photo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(15px);
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+      }
+
+      .popup-overlay-photo.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .photo-message-popup h3 {
+        font-family: "Satisfy", cursive;
+        color: #ffccbc;
+        font-size: 2.4em;
+        margin-bottom: 28px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .message-text {
+        color: #ffd4b3;
+        font-size: 1.22em;
+        line-height: 2.05;
+        margin-bottom: 32px;
+        padding: 32px;
+        background: rgba(141, 110, 99, 0.2);
+        border-radius: 23px;
+        border-left: 6px solid #ffccbc;
+      }
+
+      /* Divider */
+      .chocolate-divider {
+        text-align: center;
+        font-size: 3.4em;
+        margin: 75px 0;
+        animation: sway 3.3s ease-in-out infinite;
+        filter: drop-shadow(0 0 23px rgba(121, 85, 72, 0.8));
+      }
+
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-7deg);
+        }
+        50% {
+          transform: rotate(7deg);
+        }
+      }
+
+      /* Love Note */
+      .love-note {
+        background: linear-gradient(135deg, #5d4037 0%, #4e342e 100%);
+        padding: 65px;
+        border-radius: 32px;
+        box-shadow: 0 23px 68px rgba(0, 0, 0, 0.6);
+        margin: 65px auto;
+        max-width: 940px;
+        border: 5px solid #ffccbc;
+        animation: fadeIn 1.7s ease;
+      }
+
+      .love-note h2 {
+        font-family: "Satisfy", cursive;
+        color: #ffccbc;
+        font-size: 3.2em;
+        margin-bottom: 32px;
+        text-align: center;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .love-note p {
+        font-size: 1.48em;
+        line-height: 2.05;
+        color: #ffd4b3;
+        margin-bottom: 28px;
+        text-align: justify;
+      }
+
+      .signature {
+        text-align: right;
+        font-style: italic;
+        font-size: 1.65em;
+        color: #ffccbc;
+        margin-top: 42px;
+        font-weight: 600;
+      }
+
+      .heart-animation {
+        display: inline-block;
+        animation: heartBeat 1.7s infinite;
+        font-size: 1.2em;
+      }
+
+      /* Click Hearts Effect */
+      .click-heart {
+        position: fixed;
+        font-size: 2.7em;
+        pointer-events: none;
+        z-index: 9999;
+        animation: floatUp 2.1s ease-out forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-135px) scale(2.1);
+          opacity: 0;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 3.4em;
+        }
+
+        .love-note {
+          padding: 38px;
+        }
+
+        .video-container {
+          padding: 30px;
+        }
+
+        .photo-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-chocolate-bg" id="chocolateBg"></div>
+
+    <div class="valentine-week-banner">
+      <h2>💕 Valentine's Week 2025 💕</h2>
+      <div class="week-timeline">
+        <a href="rose-day.html" class="day-badge">🌹 Rose Day</a>
+        <a href="propose-day.html" class="day-badge">💍 Propose Day</a>
+        <a href="chocolate-day.html" class="day-badge active"
+          >🍫 Chocolate Day</a
+        >
+        <span class="day-badge">🧸 Teddy Day</span>
+        <span class="day-badge">🤝 Promise Day</span>
+        <span class="day-badge">🤗 Hug Day</span>
+        <span class="day-badge">💋 Kiss Day</span>
+        <span class="day-badge">💖 Valentine's Day</span>
+      </div>
+    </div>
+
+    <div class="interactive-chocolate" onclick="showLoveMessage()">
+      <div class="chocolate-icon-button">🍫</div>
+      <div class="chocolate-tooltip">Sweet surprise! 💕</div>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <h1>Happy Chocolate Day! 🍫</h1>
+        <p>Day 3 of sweetening our love</p>
+      </div>
+
+      <div class="day-counter">
+        <div class="day-number">3</div>
+        <div class="day-label">Chocolate Day</div>
+      </div>
+
+      <div class="chocolate-icon">🍫</div>
+
+      <div
+        class="popup-overlay"
+        id="popupOverlay"
+        onclick="closeLoveMessage()"
+      ></div>
+
+      <div class="love-popup" id="lovePopup">
+        <div class="popup-icon">🍫</div>
+        <h3>Sweet Like You</h3>
+        <p contenteditable="true">
+          They say chocolate is the sweetest thing in the world, but they
+          clearly haven't met you. Your smile is sweeter than the finest
+          chocolate, your love more delightful than any dessert. You're my
+          favorite indulgence! 💕
+        </p>
+        <button class="popup-close" onclick="closeLoveMessage()">
+          Close 💖
+        </button>
+      </div>
+
+      <!-- Video Section -->
+      <div class="video-container">
+        <h3>A Sweet Message for You 💝</h3>
+        <div class="video-wrapper">
+          <!-- Option 1: YouTube Video -->
+          <!-- Uncomment and replace VIDEO_ID with your YouTube video ID -->
+          <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+
+          <!-- Option 2: Local Video File -->
+          <!-- Replace 'your-video.mp4' with your video file path -->
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/watch?v=V1PbDJMpnUM"
+            title="YouTube video player"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            allowfullscreen
+          >
+          </iframe>
+
+          <!-- Option 3: Vimeo Video -->
+          <!-- <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+        </div>
+        <div class="video-caption" contenteditable="true">
+          Just like chocolate, you make life sweeter! 🍫💕
+        </div>
+      </div>
+
+      <div class="photo-gallery">
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(1)">
+            <img
+              src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=500"
+              alt="Sweet Moments"
+            />
+          </div>
+          <div class="photo-caption" contenteditable="true">
+            Sweet like chocolate
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(2)">
+            <img
+              src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500"
+              alt="Indulgence"
+            />
+          </div>
+          <div class="photo-caption" contenteditable="true">
+            Our sweetest memories
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(3)">
+            <img
+              src="https://images.unsplash.com/photo-1537362608004-3574f8040e9b?w=500"
+              alt="Delicious Love"
+            />
+          </div>
+          <div class="photo-caption" contenteditable="true">
+            Sweeter than any chocolate
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="popup-overlay-photo"
+        id="photoOverlay"
+        onclick="closePhotoMessage()"
+      ></div>
+
+      <div class="photo-message-popup photo-popup-1" id="photoPopup1">
+        <div class="popup-icon">🍫</div>
+        <h3>Sweet Like Chocolate</h3>
+        <div class="message-text" contenteditable="true">
+          They say chocolate is the sweetest thing in the world, but they
+          clearly haven't met you. Your smile is sweeter than the finest Belgian
+          chocolate, your laugh more delightful than any dessert. Every moment
+          with you is like unwrapping a precious treat - full of joy, surprise,
+          and pure bliss. You're my favorite indulgence, and I never want to
+          give you up!
+        </div>
+        <button class="popup-close" onclick="closePhotoMessage()">
+          Close 💕
+        </button>
+      </div>
+
+      <div class="photo-message-popup photo-popup-2" id="photoPopup2">
+        <div class="popup-icon">💝</div>
+        <h3>Our Sweetest Memories</h3>
+        <div class="message-text" contenteditable="true">
+          Remember all those times we shared a chocolate bar, splitting it
+          perfectly (or arguing about who got the bigger piece)? Those silly,
+          sweet moments are what make us, us. Whether we're sharing desserts,
+          dreams, or just comfortable silence, every memory we create together
+          is precious. You make ordinary moments extraordinary, and I cherish
+          every single one.
+        </div>
+        <button class="popup-close" onclick="closePhotoMessage()">
+          Close 💕
+        </button>
+      </div>
+
+      <div class="photo-message-popup photo-popup-3" id="photoPopup3">
+        <div class="popup-icon">✨</div>
+        <h3>Sweeter Than Anything</h3>
+        <div class="message-text" contenteditable="true">
+          I could have all the chocolate in the world, but nothing would ever be
+          as sweet as your love. You've added flavor to my life in ways I never
+          imagined possible. Your presence is like the perfect recipe - a mix of
+          warmth, comfort, excitement, and pure happiness. Thank you for being
+          the sweetest part of my life. I love you more than any treat, any
+          dessert, any indulgence. You are my favorite everything!
+        </div>
+        <button class="popup-close" onclick="closePhotoMessage()">
+          Close 💕
+        </button>
+      </div>
+
+      <div class="chocolate-divider">🍫 💕 🍫</div>
+
+      <div class="love-note">
+        <h2>You're Sweeter <span class="heart-animation">🍫</span></h2>
+        <p contenteditable="true">
+          Life with you is like a box of the finest chocolates - every day
+          brings something sweet, delightful, and worth savoring. You melt my
+          heart like chocolate in the sun, and just like my favorite treat, I
+          can never get enough of you. Your love is richer than dark chocolate,
+          smoother than milk chocolate, and more precious than any confection.
+          Thank you for making my life so incredibly sweet. Happy Chocolate Day,
+          my sweetest love!
+        </p>
+        <p class="signature">Your Sweet Tooth 🍫</p>
+      </div>
+    </div>
+
+    <script>
+      function createFloatingChocolates() {
+        const chocolateBg = document.getElementById("chocolateBg");
+        const chocolateEmojis = ["🍫", "🍬", "🍰", "🧁", "🍪"];
+
+        for (let i = 0; i < 20; i++) {
+          const chocolate = document.createElement("div");
+          chocolate.className = "floating-chocolate";
+          chocolate.textContent =
+            chocolateEmojis[Math.floor(Math.random() * chocolateEmojis.length)];
+          chocolate.style.left = Math.random() * 100 + "%";
+          chocolate.style.animationDelay = Math.random() * 22 + "s";
+          chocolate.style.animationDuration = Math.random() * 12 + 18 + "s";
+          chocolateBg.appendChild(chocolate);
+        }
+      }
+
+      function showLoveMessage() {
+        document.getElementById("popupOverlay").classList.add("show");
+        document.getElementById("lovePopup").classList.add("show");
+        createChocolateShower();
+      }
+
+      function closeLoveMessage() {
+        document.getElementById("popupOverlay").classList.remove("show");
+        document.getElementById("lovePopup").classList.remove("show");
+      }
+
+      let currentPhotoPopup = null;
+      function showPhotoMessage(photoNumber) {
+        closePhotoMessage();
+        currentPhotoPopup = photoNumber;
+        document.getElementById("photoOverlay").classList.add("show");
+        document
+          .getElementById("photoPopup" + photoNumber)
+          .classList.add("show");
+        createHeartExplosion();
+      }
+
+      function closePhotoMessage() {
+        if (currentPhotoPopup) {
+          document.getElementById("photoOverlay").classList.remove("show");
+          document
+            .getElementById("photoPopup" + currentPhotoPopup)
+            .classList.remove("show");
+          currentPhotoPopup = null;
+        }
+      }
+
+      function createHeartExplosion() {
+        const hearts = ["❤️", "💕", "💖", "💗", "💝", "💓", "💘", "🍫", "🍬"];
+        for (let i = 0; i < 28; i++) {
+          setTimeout(() => {
+            const heart = document.createElement("div");
+            heart.style.position = "fixed";
+            heart.style.left = "50%";
+            heart.style.top = "50%";
+            heart.style.fontSize = "2.6em";
+            heart.style.pointerEvents = "none";
+            heart.style.zIndex = "10002";
+            heart.textContent =
+              hearts[Math.floor(Math.random() * hearts.length)];
+
+            const angle = (Math.PI * 2 * i) / 28;
+            document.body.appendChild(heart);
+
+            let x = 0,
+              y = 0,
+              opacity = 1;
+            const animate = () => {
+              x += Math.cos(angle) * 6.5;
+              y += Math.sin(angle) * 6.5;
+              opacity -= 0.013;
+
+              heart.style.transform = `translate(${x}px, ${y}px)`;
+              heart.style.opacity = opacity;
+
+              if (opacity > 0) {
+                requestAnimationFrame(animate);
+              } else {
+                heart.remove();
+              }
+            };
+            animate();
+          }, i * 50);
+        }
+      }
+
+      function createChocolateShower() {
+        const colors = ["#8d6e63", "#a1887f", "#bcaaa4", "#d7ccc8"];
+        for (let i = 0; i < 45; i++) {
+          setTimeout(() => {
+            const piece = document.createElement("div");
+            piece.style.position = "fixed";
+            piece.style.width = "10px";
+            piece.style.height = "10px";
+            piece.style.background =
+              colors[Math.floor(Math.random() * colors.length)];
+            piece.style.borderRadius = "50%";
+            piece.style.pointerEvents = "none";
+            piece.style.zIndex = "9999";
+            piece.style.left = Math.random() * 100 + "vw";
+            piece.style.top = "-10px";
+            piece.style.boxShadow =
+              "0 0 12px " + colors[Math.floor(Math.random() * colors.length)];
+
+            const duration = Math.random() * 2.5 + 2;
+            piece.style.animation = `fallChocolate ${duration}s linear forwards`;
+
+            document.body.appendChild(piece);
+            setTimeout(() => piece.remove(), duration * 1000);
+          }, i * 75);
+        }
+      }
+
+      const fallChocolateKeyframes = `
+        @keyframes fallChocolate {
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `;
+      const styleSheet = document.createElement("style");
+      styleSheet.textContent = fallChocolateKeyframes;
+      document.head.appendChild(styleSheet);
+
+      document.addEventListener("click", function (e) {
+        if (
+          e.target.contentEditable === "true" ||
+          e.target.tagName === "BUTTON" ||
+          e.target.tagName === "A" ||
+          e.target.tagName === "VIDEO" ||
+          e.target.classList.contains("popup-close") ||
+          e.target.closest(".interactive-chocolate") ||
+          e.target.closest(".photo-placeholder") ||
+          e.target.closest(".video-wrapper")
+        ) {
+          return;
+        }
+
+        const sweets = ["🍫", "🍬", "🍰", "💕"];
+        const sweet = document.createElement("div");
+        sweet.className = "click-heart";
+        sweet.textContent = sweets[Math.floor(Math.random() * sweets.length)];
+        sweet.style.left = e.clientX + "px";
+        sweet.style.top = e.clientY + "px";
+        sweet.style.color = ["#8d6e63", "#a1887f", "#ffccbc"][
+          Math.floor(Math.random() * 3)
+        ];
+        document.body.appendChild(sweet);
+
+        setTimeout(() => sweet.remove(), 2100);
+      });
+
+      window.addEventListener("load", createFloatingChocolates);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeLoveMessage();
+          closePhotoMessage();
+        }
+      });
+    </script>
+  </body>
+</html>

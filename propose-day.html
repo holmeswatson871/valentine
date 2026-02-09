@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Propose Day, My Love! 💍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;900&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Crimson Pro", serif;
+        background: linear-gradient(135deg, #f5f0e8 0%, #faf8f3 50%, #ffffff 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+        color: #2c2416;
+      }
+
+      /* Navigation Timeline */
+      .valentine-week-banner {
+        background: linear-gradient(135deg, #d4af37, #b8941e);
+        padding: 25px 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        animation: slideDown 0.8s ease;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .valentine-week-banner h2 {
+        font-family: "Cinzel", serif;
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 900;
+        color: #fff;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .week-timeline {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .day-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 0.95em;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .day-badge.active {
+        background: white;
+        color: #d4af37;
+        border-color: white;
+        transform: scale(1.15);
+        font-weight: bold;
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8);
+        text-shadow: none;
+      }
+
+      .day-badge:not(.active):hover {
+        background: rgba(255, 255, 255, 0.35);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      }
+
+      /* Floating Rings Background */
+      .floating-ring-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .floating-ring {
+        position: absolute;
+        font-size: 3em;
+        opacity: 0.15;
+        animation: floatRing 25s infinite linear;
+        filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+      }
+
+      @keyframes floatRing {
+        0% {
+          transform: translateY(110vh) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translateY(50vh) rotate(180deg) scale(1.2);
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg) scale(1);
+        }
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        padding: 70px 20px 50px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header h1 {
+        font-family: "Cinzel", serif;
+        font-size: 5em;
+        background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        filter: drop-shadow(2px 2px 8px rgba(212, 175, 55, 0.4));
+      }
+
+      .header p {
+        font-size: 1.7em;
+        color: #8b7355;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      /* Day Counter */
+      .day-counter {
+        background: linear-gradient(135deg, #ffffff 0%, #faf8f3 100%);
+        border: 6px solid #d4af37;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 50px auto;
+        box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4), inset 0 0 40px rgba(212, 175, 55, 0.1);
+        animation: ringPulse 3s infinite;
+        position: relative;
+      }
+
+      @keyframes ringPulse {
+        0%, 100% {
+          box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4), inset 0 0 40px rgba(212, 175, 55, 0.1);
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 20px 60px rgba(212, 175, 55, 0.7), inset 0 0 50px rgba(212, 175, 55, 0.2);
+          transform: scale(1.05);
+        }
+      }
+
+      .day-counter::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border: 2px solid #d4af37;
+        border-radius: 50%;
+        opacity: 0.3;
+      }
+
+      .day-number {
+        font-family: "Cinzel", serif;
+        font-size: 5em;
+        font-weight: bold;
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+
+      .day-label {
+        font-size: 1.3em;
+        color: #8b7355;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+
+      /* Ring Icon */
+      .ring-icon {
+        font-size: 6em;
+        text-align: center;
+        margin: 40px 0;
+        animation: ringSparkle 2.5s infinite;
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+      }
+
+      @keyframes ringSparkle {
+        0%, 100% {
+          transform: rotate(-15deg) scale(1);
+          filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+        }
+        50% {
+          transform: rotate(15deg) scale(1.15);
+          filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1));
+        }
+      }
+
+      /* Interactive Ring */
+      .interactive-ring {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 999;
+        cursor: pointer;
+        animation: bounce 2.5s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0) rotate(-10deg);
+        }
+        50% {
+          transform: translateY(-30px) rotate(10deg);
+        }
+      }
+
+      .ring-icon-button {
+        font-size: 5.5em;
+        filter: drop-shadow(0 10px 25px rgba(212, 175, 55, 0.8));
+        transition: all 0.4s;
+      }
+
+      .interactive-ring:hover .ring-icon-button {
+        transform: scale(1.4) rotate(20deg);
+        filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 1));
+      }
+
+      .ring-tooltip {
+        position: absolute;
+        bottom: -55px;
+        right: 0;
+        background: linear-gradient(135deg, #d4af37, #b8941e);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 1em;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.6);
+        font-weight: 600;
+      }
+
+      .interactive-ring:hover .ring-tooltip {
+        opacity: 1;
+      }
+
+      /* Love Popup */
+      .love-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: linear-gradient(135deg, #ffffff 0%, #faf8f3 100%);
+        padding: 60px;
+        border-radius: 35px;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        max-width: 550px;
+        text-align: center;
+        transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 6px solid #d4af37;
+      }
+
+      .love-popup.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(12px);
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+      }
+
+      .popup-overlay.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .popup-icon {
+        font-size: 4.5em;
+        margin-bottom: 25px;
+        animation: heartBeat 1.8s infinite;
+      }
+
+      @keyframes heartBeat {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.35);
+        }
+      }
+
+      .love-popup h3 {
+        font-family: "Cinzel", serif;
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.8em;
+        margin-bottom: 30px;
+        font-weight: 900;
+      }
+
+      .love-popup p {
+        color: #5a4a3a;
+        font-size: 1.35em;
+        line-height: 1.9;
+        margin-bottom: 30px;
+      }
+
+      .popup-close {
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        color: white;
+        border: none;
+        padding: 16px 45px;
+        border-radius: 35px;
+        font-size: 1.15em;
+        cursor: pointer;
+        transition: all 0.4s;
+        font-weight: 700;
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .popup-close:hover {
+        background: linear-gradient(135deg, #ffd700, #d4af37);
+        transform: scale(1.12);
+        box-shadow: 0 10px 35px rgba(212, 175, 55, 0.8);
+      }
+
+      /* Photo Gallery */
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 50px;
+        margin: 70px 0;
+      }
+
+      .photo-item {
+        animation: fadeInUp 1.2s ease;
+        animation-fill-mode: both;
+      }
+
+      .photo-item:nth-child(1) { animation-delay: 0.3s; }
+      .photo-item:nth-child(2) { animation-delay: 0.5s; }
+      .photo-item:nth-child(3) { animation-delay: 0.7s; }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .photo-placeholder {
+        background: #ffffff;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(212, 175, 55, 0.25);
+        cursor: pointer;
+        transition: all 0.5s;
+        border: 4px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .photo-placeholder:hover {
+        transform: translateY(-20px) scale(1.03);
+        box-shadow: 0 30px 80px rgba(212, 175, 55, 0.5);
+        border-color: #d4af37;
+      }
+
+      .photo-placeholder img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.95) sepia(0.1);
+        transition: filter 0.4s;
+      }
+
+      .photo-placeholder:hover img {
+        filter: brightness(1) sepia(0.15);
+      }
+
+      .photo-caption {
+        padding: 30px;
+        text-align: center;
+        font-size: 1.4em;
+        color: #8b7355;
+        font-style: italic;
+        font-weight: 600;
+        background: linear-gradient(to bottom, #ffffff, #faf8f3);
+      }
+
+      /* Photo Message Popup */
+      .photo-message-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: linear-gradient(135deg, #ffffff 0%, #faf8f3 100%);
+        padding: 60px;
+        border-radius: 35px;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+        z-index: 10000;
+        max-width: 650px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        text-align: center;
+        transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 6px solid #d4af37;
+      }
+
+      .photo-message-popup.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .popup-overlay-photo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(15px);
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+      }
+
+      .popup-overlay-photo.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .photo-message-popup h3 {
+        font-family: "Cinzel", serif;
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        font-weight: 900;
+      }
+
+      .message-text {
+        color: #5a4a3a;
+        font-size: 1.25em;
+        line-height: 2.1;
+        margin-bottom: 35px;
+        padding: 35px;
+        background: rgba(212, 175, 55, 0.08);
+        border-radius: 25px;
+        border-left: 6px solid #d4af37;
+      }
+
+      /* Divider */
+      .ring-divider {
+        text-align: center;
+        font-size: 3.5em;
+        margin: 80px 0;
+        animation: sway 3.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.7));
+      }
+
+      @keyframes sway {
+        0%, 100% {
+          transform: rotate(-8deg);
+        }
+        50% {
+          transform: rotate(8deg);
+        }
+      }
+
+      /* Love Note */
+      .love-note {
+        background: linear-gradient(135deg, #ffffff 0%, #faf8f3 100%);
+        padding: 70px;
+        border-radius: 35px;
+        box-shadow: 0 25px 70px rgba(212, 175, 55, 0.3);
+        margin: 70px auto;
+        max-width: 950px;
+        border: 6px solid #d4af37;
+        animation: fadeIn 1.8s ease;
+      }
+
+      .love-note h2 {
+        font-family: "Cinzel", serif;
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 3.3em;
+        margin-bottom: 35px;
+        text-align: center;
+        font-weight: 900;
+      }
+
+      .love-note p {
+        font-size: 1.5em;
+        line-height: 2.1;
+        color: #5a4a3a;
+        margin-bottom: 30px;
+        text-align: justify;
+      }
+
+      .signature {
+        text-align: right;
+        font-style: italic;
+        font-size: 1.7em;
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-top: 45px;
+        font-weight: 700;
+      }
+
+      .heart-animation {
+        display: inline-block;
+        animation: heartBeat 1.8s infinite;
+        font-size: 1.2em;
+      }
+
+      /* Click Hearts Effect */
+      .click-heart {
+        position: fixed;
+        font-size: 2.8em;
+        pointer-events: none;
+        z-index: 9999;
+        animation: floatUp 2.2s ease-out forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-140px) scale(2.2);
+          opacity: 0;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 3.2em;
+        }
+
+        .love-note {
+          padding: 40px;
+        }
+
+        .photo-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-ring-bg" id="ringBg"></div>
+
+    <div class="valentine-week-banner">
+      <h2>💕 Valentine's Week 2025 💕</h2>
+      <div class="week-timeline">
+        <a href="rose-day.html" class="day-badge">🌹 Rose Day</a>
+        <a href="propose-day.html" class="day-badge active">💍 Propose Day</a>
+        <a href="chocolate-day.html" class="day-badge">🍫 Chocolate Day</a>
+        <span class="day-badge">🧸 Teddy Day</span>
+        <span class="day-badge">🤝 Promise Day</span>
+        <span class="day-badge">🤗 Hug Day</span>
+        <span class="day-badge">💋 Kiss Day</span>
+        <span class="day-badge">💖 Valentine's Day</span>
+      </div>
+    </div>
+
+    <div class="interactive-ring" onclick="showLoveMessage()">
+      <div class="ring-icon-button">💍</div>
+      <div class="ring-tooltip">My promise to you! 💕</div>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <h1>Happy Propose Day! 💍</h1>
+        <p>Day 2 of forever choosing you</p>
+      </div>
+
+      <div class="day-counter">
+        <div class="day-number">2</div>
+        <div class="day-label">Propose Day</div>
+      </div>
+
+      <div class="ring-icon">💍</div>
+
+      <div class="popup-overlay" id="popupOverlay" onclick="closeLoveMessage()"></div>
+
+      <div class="love-popup" id="lovePopup">
+        <div class="popup-icon">💍</div>
+        <h3>I Choose You</h3>
+        <p contenteditable="true">
+          Today and every day, I choose you. Not because I have to, but because
+          my heart knows no other way. You are my answered prayer, my unexpected
+          blessing, and my greatest adventure. Will you continue this beautiful
+          journey with me? 💕
+        </p>
+        <button class="popup-close" onclick="closeLoveMessage()">
+          Forever Yours 💖
+        </button>
+      </div>
+
+      <div class="photo-gallery">
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(1)">
+            <img
+              src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=500"
+              alt="The Moment I Knew"
+            />
+          </div>
+          <div class="photo-caption" contenteditable="true">
+            The moment I knew you were the one
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(2)">
+            <img
+              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=500"
+              alt="Our Promise"
+            />
+          </div>
+          <div class="photo-caption" contenteditable="true">
+            Forever and always
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <div class="photo-placeholder" onclick="showPhotoMessage(3)">
+            <img
+              src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=500"
+              alt="Together Forever"
+            />
+          </div>
+          <div class="photo-caption" contenteditable="true">
+            Building our dreams together
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-overlay-photo" id="photoOverlay" onclick="closePhotoMessage()"></div>
+
+      <div class="photo-message-popup photo-popup-1" id="photoPopup1">
+        <div class="popup-icon">💍</div>
+        <h3>The Moment I Knew</h3>
+        <div class="message-text" contenteditable="true">
+          There was a moment when everything just clicked. Looking into your
+          eyes, I knew with absolute certainty that you were the person I
+          wanted to spend the rest of my life with. Your laugh, your kindness,
+          your beautiful soul - everything about you makes my heart skip a
+          beat. Every day I choose you, and I will continue to choose you,
+          over and over again.
+        </div>
+        <button class="popup-close" onclick="closePhotoMessage()">
+          Close 💕
+        </button>
+      </div>
+
+      <div class="photo-message-popup photo-popup-2" id="photoPopup2">
+        <div class="popup-icon">💝</div>
+        <h3>My Forever Promise</h3>
+        <div class="message-text" contenteditable="true">
+          I promise to love you through every season of life. Through the
+          sunny days and the stormy ones, through the laughter and the tears.
+          I promise to be your biggest supporter, your safe haven, and your
+          partner in all adventures. With you, I've found my home, my best
+          friend, and my greatest love. Will you continue this beautiful
+          journey with me?
+        </div>
+        <button class="popup-close" onclick="closePhotoMessage()">
+          Close 💕
+        </button>
+      </div>
+
+      <div class="photo-message-popup photo-popup-3" id="photoPopup3">
+        <div class="popup-icon">✨</div>
+        <h3>Building Our Dreams</h3>
+        <div class="message-text" contenteditable="true">
+          Together, we're not just making memories - we're building a
+          lifetime. Every dream feels achievable when I know you're by my
+          side. From the little everyday moments to the big milestones, I want
+          to share it all with you. You make everything better, brighter, and
+          more beautiful. Here's to our future, our dreams, and our forever.
+        </div>
+        <button class="popup-close" onclick="closePhotoMessage()">
+          Close 💕
+        </button>
+      </div>
+
+      <div class="ring-divider">💍 ✨ 💍</div>
+
+      <div class="love-note">
+        <h2>I Choose You <span class="heart-animation">💖</span></h2>
+        <p contenteditable="true">
+          Today and every day, I choose you. Not because I have to, but
+          because my heart knows no other way. You are my answered prayer, my
+          unexpected blessing, and my greatest adventure. From the moment we
+          met, I knew my life would never be the same - and I was right. You've
+          made it infinitely better. I don't just want you for today; I want
+          you for all my tomorrows. Happy Propose Day, my love!
+        </p>
+        <p class="signature">Eternally Yours 💍</p>
+      </div>
+    </div>
+
+    <script>
+      function createFloatingRings() {
+        const ringBg = document.getElementById("ringBg");
+        const ringEmojis = ["💍", "💎", "✨", "⭐"];
+
+        for (let i = 0; i < 18; i++) {
+          const ring = document.createElement("div");
+          ring.className = "floating-ring";
+          ring.textContent = ringEmojis[Math.floor(Math.random() * ringEmojis.length)];
+          ring.style.left = Math.random() * 100 + "%";
+          ring.style.animationDelay = Math.random() * 25 + "s";
+          ring.style.animationDuration = Math.random() * 15 + 20 + "s";
+          ringBg.appendChild(ring);
+        }
+      }
+
+      function showLoveMessage() {
+        document.getElementById("popupOverlay").classList.add("show");
+        document.getElementById("lovePopup").classList.add("show");
+        createSparkleShower();
+      }
+
+      function closeLoveMessage() {
+        document.getElementById("popupOverlay").classList.remove("show");
+        document.getElementById("lovePopup").classList.remove("show");
+      }
+
+      let currentPhotoPopup = null;
+      function showPhotoMessage(photoNumber) {
+        closePhotoMessage();
+        currentPhotoPopup = photoNumber;
+        document.getElementById("photoOverlay").classList.add("show");
+        document.getElementById("photoPopup" + photoNumber).classList.add("show");
+        createHeartExplosion();
+      }
+
+      function closePhotoMessage() {
+        if (currentPhotoPopup) {
+          document.getElementById("photoOverlay").classList.remove("show");
+          document.getElementById("photoPopup" + currentPhotoPopup).classList.remove("show");
+          currentPhotoPopup = null;
+        }
+      }
+
+      function createHeartExplosion() {
+        const hearts = ["❤️", "💕", "💖", "💗", "💝", "💓", "💘", "💍", "💎"];
+        for (let i = 0; i < 30; i++) {
+          setTimeout(() => {
+            const heart = document.createElement("div");
+            heart.style.position = "fixed";
+            heart.style.left = "50%";
+            heart.style.top = "50%";
+            heart.style.fontSize = "2.8em";
+            heart.style.pointerEvents = "none";
+            heart.style.zIndex = "10002";
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+            const angle = (Math.PI * 2 * i) / 30;
+            document.body.appendChild(heart);
+
+            let x = 0, y = 0, opacity = 1;
+            const animate = () => {
+              x += Math.cos(angle) * 7;
+              y += Math.sin(angle) * 7;
+              opacity -= 0.012;
+
+              heart.style.transform = `translate(${x}px, ${y}px)`;
+              heart.style.opacity = opacity;
+
+              if (opacity > 0) {
+                requestAnimationFrame(animate);
+              } else {
+                heart.remove();
+              }
+            };
+            animate();
+          }, i * 50);
+        }
+      }
+
+      function createSparkleShower() {
+        const colors = ["#d4af37", "#ffd700", "#ffed4e", "#fff9b1"];
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => {
+            const sparkle = document.createElement("div");
+            sparkle.style.position = "fixed";
+            sparkle.style.width = "8px";
+            sparkle.style.height = "8px";
+            sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            sparkle.style.borderRadius = "50%";
+            sparkle.style.pointerEvents = "none";
+            sparkle.style.zIndex = "9999";
+            sparkle.style.left = Math.random() * 100 + "vw";
+            sparkle.style.top = "-10px";
+            sparkle.style.boxShadow = "0 0 15px " + colors[Math.floor(Math.random() * colors.length)];
+            
+            const duration = Math.random() * 3 + 2;
+            sparkle.style.animation = `fallSparkle ${duration}s linear forwards`;
+            
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), duration * 1000);
+          }, i * 80);
+        }
+      }
+
+      const fallSparkleKeyframes = `
+        @keyframes fallSparkle {
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+          }
+        }
+      `;
+      const styleSheet = document.createElement("style");
+      styleSheet.textContent = fallSparkleKeyframes;
+      document.head.appendChild(styleSheet);
+
+      document.addEventListener("click", function (e) {
+        if (
+          e.target.contentEditable === "true" ||
+          e.target.tagName === "BUTTON" ||
+          e.target.tagName === "A" ||
+          e.target.classList.contains("popup-close") ||
+          e.target.closest(".interactive-ring") ||
+          e.target.closest(".photo-placeholder")
+        ) {
+          return;
+        }
+
+        const symbols = ["💍", "💎", "✨", "⭐"];
+        const symbol = document.createElement("div");
+        symbol.className = "click-heart";
+        symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        symbol.style.left = e.clientX + "px";
+        symbol.style.top = e.clientY + "px";
+        symbol.style.color = ["#d4af37", "#ffd700", "#ffed4e"][Math.floor(Math.random() * 3)];
+        document.body.appendChild(symbol);
+
+        setTimeout(() => symbol.remove(), 2200);
+      });
+
+      window.addEventListener("load", createFloatingRings);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeLoveMessage();
+          closePhotoMessage();
+        }
+      });
+    </script>
+  </body>
+</html>
